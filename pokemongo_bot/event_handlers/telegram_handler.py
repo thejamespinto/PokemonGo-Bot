@@ -358,6 +358,14 @@ class TelegramHandler(EventHandler):
                             or event == 'login_log' \
                             or event == 'evolve_log' \
                             or event == 'catchable_pokemon' \
+                            or event == 'position_update' \
+                            or event == 'location_found' \
+                            or event == 'location_cache_error' \
+                            or event == 'no_cached_forts' \
+                            or event == 'player_data' \
+                            or event == 'loaded_cached_forts' \
+                            or event == 'load_cached_location' \
+                            or event == 'set_start_location' \
                             or event == 'transfer_log':
                         pass
                     elif event_type == "debug":

@@ -91,9 +91,15 @@ class ChatHandler:
         events.remove('evolve_log')
         events.remove('transfer_log')
         events.remove('catchable_pokemon')
+        events.remove('position_update')
+        events.remove('location_found')
+        events.remove('location_cache_error')
+        events.remove('no_cached_forts')
+        events.remove('player_data')
+        events.remove('loaded_cached_forts')
+        events.remove('load_cached_location')
+        events.remove('set_start_location')
         return events
-
-
 
     def sendMessage(self, chat_id=None, parse_mode='Markdown', text=None):
         try:

@@ -68,12 +68,15 @@ class EvolvePokemon(BaseTask):
                 pokemon_to_be_evolved = pokemon_to_be_evolved + min(candy.quantity / (pokemon.evolution_cost - 1), filtered_dict[pokemon.pokemon_id])
 
         if pokemon_to_be_evolved >= self.min_pokemon_to_be_evolved:
+            self.logger.info("Checking minimum pokemon to evolve: {}/{}. Hooray!".format(pokemon_to_be_evolved, self.min_pokemon_to_be_evolved))
             if self.use_lucky_egg:
                 self._use_lucky_egg()
             cache = {}
             for pokemon in filtered_list:
                 if pokemon.can_evolve_now():
                     self._execute_pokemon_evolve(pokemon, cache)
+        else:
+            self.logger.info("Checking minimum pokemon to evolve: {}/{}. Not enough, gotta catch`em all (over and over again)".format(pokemon_to_be_evolved, self.min_pokemon_to_be_evolved))
 
     def _should_run(self):
         if not self.evolve_list or self.evolve_list[0] == 'none':
